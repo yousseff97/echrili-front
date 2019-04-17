@@ -2,6 +2,7 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
+declare var $: any;
 
 import { AuthenticationService } from '../_services';
 
@@ -49,7 +50,8 @@ export class LoginComponent implements OnInit {
             .pipe(first())
             .subscribe(
                 data => {
-                    this.router.navigate([this.returnUrl]);
+                  $.magnificPopup.close();
+              this.router.navigate([this.returnUrl]);
                 },
                 error => {
                     this.error = error;
