@@ -15,8 +15,10 @@ const appRoutes: Routes = [
     path: 'login',
     component: LoginComponent
   }, {
-    path: 'list-amis',
-    component: ListAmisComponent
+    path: 'friends',
+    component: ListAmisComponent,
+    canActivate: [AuthGuard]
+
   },
 
   // otherwise redirect to home
