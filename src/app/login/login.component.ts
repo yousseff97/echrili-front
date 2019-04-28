@@ -5,7 +5,7 @@ import {first} from 'rxjs/operators';
 
 declare var $: any;
 
-import {AuthenticationService} from '../_services';
+import {AuthenticationService} from '../_services/authentication.service';
 
 @Component({
   selector: 'app-login'
