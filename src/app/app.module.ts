@@ -15,6 +15,8 @@ import { LoginComponent } from './login';
 import {APP_BASE_HREF} from '@angular/common';
 import { ListAmisComponent } from './list-amis/list-amis.component';
 import { AppHeaderComponent } from './app-header/app-header.component';
+import { ListUsersComponent } from './list-users/list-users.component';
+import { ListFriendRequestsComponent } from './list-friend-requests/list-friend-requests.component';
 
 @NgModule({
   imports: [
@@ -29,7 +31,9 @@ import { AppHeaderComponent } from './app-header/app-header.component';
     HomeComponent,
     LoginComponent,
     ListAmisComponent,
-    AppHeaderComponent
+    AppHeaderComponent,
+    ListUsersComponent,
+    ListFriendRequestsComponent
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

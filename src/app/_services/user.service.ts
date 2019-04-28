@@ -11,4 +11,8 @@ export class UserService {
     getFriends() {
         return this.http.get<User[]>(`${Config.apiUrl}/users/friends`);
     }
+
+  getAllUsers() {
+    return this.http.get<User[]>(`${Config.apiUrl}/users`);
+  }
 }
