@@ -8,7 +8,7 @@ import { routing } from './app.routing';
 
 import { JwtInterceptor } from './_helpers/jwt.interceptor';
 import { ErrorInterceptor } from './_helpers/error.interceptor';
-import { HomeComponent } from './home';
+import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login';
 import {APP_BASE_HREF} from '@angular/common';
 import { ListAmisComponent } from './list-amis/list-amis.component';
