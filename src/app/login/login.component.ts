@@ -4,8 +4,9 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {first} from 'rxjs/operators';
 
 declare var $: any;
-
+import {UserService} from '../_services/user.service';
 import {AuthenticationService} from '../_services/authentication.service';
+
 
 @Component({
   selector: 'app-login'
@@ -13,23 +14,33 @@ import {AuthenticationService} from '../_services/authentication.service';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
+  registerForm: FormGroup;
   loading = false;
   submitted = false;
   returnUrl: string;
   error = '';
 
+  loading1 = false;
+  submitted1 = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private route: ActivatedRoute,
     private router: Router,
-    private authenticationService: AuthenticationService
-  ) {
-  }
+    private authenticationService: AuthenticationService,
+    private userService: UserService
+  ) {}
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
+    });
+
+    this.registerForm = this.formBuilder.group({
+      username1: ['', Validators.required],
+      password1: ['', [Validators.required, Validators.minLength(6)]],
+      email: ['', [Validators.required, Validators.email]]
     });
 
     // reset login status
@@ -42,6 +53,10 @@ export class LoginComponent implements OnInit {
   // convenience getter for easy access to form fields
   get f() {
     return this.loginForm.controls;
+  }
+
+  get f1() {
+    return this.registerForm.controls;
   }
 
   onSubmit() {
@@ -65,4 +80,26 @@ export class LoginComponent implements OnInit {
           this.loading = false;
         });
   }
+
+  onSubmit1() {
+    this.submitted1 = true;
+
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+      return;
+    }
+
+    this.userService.register(this.registerForm.value)
+      .pipe(first())
+      .subscribe(
+        data => {
+          console.log('okk');
+          this.router.navigate(['/login']);
+        },
+        error => {
+          console.log('error');
+        });
+  }
+
+
 }
