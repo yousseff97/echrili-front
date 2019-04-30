@@ -1,0 +1,14 @@
+<div>
+  <div *ngIf="postList">
+    <p>Posts available:</p>
+    <br><br>
+
+    <div *ngFor="let p of postList">
+      <div> p.id </div>
+    </div>
+  </div>
+
+  <div *ngIf="!postList">
+    <p> No posts available! </p>
+  </div>
+</div>
