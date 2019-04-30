@@ -57,7 +57,7 @@ export class LoginComponent implements OnInit {
       .pipe(first())
       .subscribe(
         data => {
-          $.magnificPopup.close();
+          $('#sign-in-dialog').magnificPopup('close');
           this.router.navigate([this.returnUrl]);
         },
         error => {
