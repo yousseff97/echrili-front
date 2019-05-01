@@ -11,7 +11,8 @@ export const routes: Routes = [
   {
     path: 'list',
     component: ListTaskComponent,
-  }
+  },
+  {path: '/task/**', redirectTo: 'add'}
 ];
 
 @NgModule({

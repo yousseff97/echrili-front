@@ -12,8 +12,8 @@ import { ListTaskComponent } from './list-task/list-task.component';
     CommonModule,
     ManageTaskRouting,
     FormsModule
-
-  ]
+  ],
+  bootstrap: [ListTaskComponent]
 })
 export class ManageTaskModule {
 }

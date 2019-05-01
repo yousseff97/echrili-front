@@ -1,4 +1,4 @@
-export default class Bid {
+export class Bid {
 
   id: number;
   price: number;

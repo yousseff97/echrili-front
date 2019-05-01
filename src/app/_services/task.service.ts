@@ -3,8 +3,8 @@ import {HttpClient} from '@angular/common/http';
 import {User} from '../_models/user';
 import {Config} from '../shared/Config';
 import Notification from '../_models/notification';
-import Task from '../_models/task';
-import Bid from '../_models/bid';
+import {Task} from '../_models/task';
+import {Bid} from '../_models/bid';
 
 @Injectable({providedIn: 'root'})
 export class TaskService {
