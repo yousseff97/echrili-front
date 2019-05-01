@@ -14,6 +14,7 @@ import {APP_BASE_HREF} from '@angular/common';
 import { ListAmisComponent } from './list-amis/list-amis.component';
 import { AppHeaderComponent } from './app-header/app-header.component';
 import {ProfileComponent} from './Profile/Profile.component';
+import { SideBarComponent } from './side-bar/side-bar.component';
 
 @NgModule({
   imports: [

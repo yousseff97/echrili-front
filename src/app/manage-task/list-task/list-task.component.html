@@ -1,0 +1,106 @@
+<body class="gray">
+
+<!-- Wrapper -->
+<div id="wrapper">
+
+  <!-- Header Container
+  ================================================== -->
+  <div class="clearfix"></div>
+  <!-- Header Container / End -->
+
+  <!-- Spacer -->
+  <!--<div class="margin-top-90"></div>-->
+  <!-- Spacer / End-->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xl-3 col-lg-4">
+        <app-side-bar></app-side-bar>
+      </div>
+      <div class="col-xl-9 col-lg-8 content-left-offset">
+
+        <h3 class="page-title">Search Results</h3>
+
+        <div class="notify-box margin-top-15">
+          <div class="switch-container">
+            <label class="switch"><input type="checkbox"><span class="switch-button"></span><span class="switch-text">Turn on email alerts for this search</span></label>
+          </div>
+
+          <div class="sort-by">
+            <span>Sort by:</span>
+            <select class="selectpicker hide-tick">
+              <option>Relevance</option>
+              <option>Newest</option>
+              <option>Oldest</option>
+              <option>Random</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Tasks Container -->
+        <div class="tasks-list-container margin-top-35">
+
+          <!-- Task -->
+          <div class="task-listing" *ngFor="let task of taskList;index as i">
+
+            <!-- Job Listing Details -->
+            <div class="task-listing-details">
+
+              <!-- Details -->
+              <div class="task-listing-description">
+                <h3 class="task-listing-title">{{task.description}}</h3>
+                <ul class="task-icons">
+                  <li><i class="icon-material-outline-location-on"></i> {{task.location}}</li>
+                  <li><i class="icon-material-outline-access-time"></i> {{task.createDateTime | date:'h:mm a z'}}</li>
+                </ul>
+                <p class="task-listing-text">{{task.description}}</p>
+              </div>
+
+            </div>
+
+            <div class="task-listing-bid">
+              <div class="task-listing-bid-inner">
+                <div class="task-offers">
+                  <span class="bidding-detail margin-top-30">Set your <strong>Price </strong></span>
+
+                  <div class="input-with-icon">
+                    <input class="with-border" name="price" [(ngModel)]="task.price" type="text" placeholder="price">
+                    <i class="currency">TND</i>
+                  </div>
+
+                  <!-- Headline -->
+                  <span class="bidding-detail margin-top-30">Set your <strong>delivery time (hours)</strong></span>
+
+                  <div class="input-with-icon">
+                    <input class="with-border" name="deliveryTime" [(ngModel)]="task.deliveryTime" type="text" placeholder="price">
+                    <i class="currency">hour</i>
+                  </div>
+                </div>
+
+                <span (click)="addBid(i)" style="background-color: #2A41E8"
+                      class="button button-sliding-icon ripple-effect">Bid Now <i
+                  class="icon-material-outline-arrow-right-alt"></i></span>
+              </div>
+            </div>
+          </div>
+
+
+          <!-- Job Listing Details -->
+          <div class="task-listing-details">
+
+          </div>
+
+
+          <!-- Pagination -->
+          <div class="clearfix"></div>
+          <div class="row"></div>
+          <!-- Pagination / End -->
+
+        </div>
+        <!-- Tasks Container / End -->
+
+      </div>
+    </div>
+  </div>
+</div>
+</body>
