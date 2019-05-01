@@ -23,5 +23,4 @@ export class ListAmisComponent implements OnInit {
 
   }
 
-
 }

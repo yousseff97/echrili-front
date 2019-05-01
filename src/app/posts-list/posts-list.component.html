@@ -1,14 +1,27 @@
 <div>
+  <br><br><br><br><br><br><br><br><br><br>
+
   <div *ngIf="postList">
-    <p>Posts available:</p>
+    <h3>Posts available:</h3>
     <br><br>
 
     <div *ngFor="let p of postList">
       <div> p.id </div>
+      <div> p.description </div>
+      <div> p.price </div>
+      <br><br>
     </div>
   </div>
 
   <div *ngIf="!postList">
-    <p> No posts available! </p>
+    <h3> No posts available! </h3>
   </div>
+
+  <form #f="ngForm" (ngSubmit)="addPost(f)" novalidate>
+    <input name="price" ngModel required #price="ngModel" type="text" maxlength="10" size="10">
+    <textarea  name="description" maxlength="1000" cols="25" rows="6" ngModel></textarea>
+    <button>Submit</button>
+  </form>
+
+
 </div>
