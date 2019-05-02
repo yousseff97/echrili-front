@@ -5,23 +5,33 @@ import {routing} from '../app.routing';
 import {HttpClient} from '@angular/common/http';
 import {NgForm} from '@angular/forms';
 import {Config} from '../shared/Config';
+import {AuthenticationService} from '../_services/authentication.service';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './Profile.component.html',
 })
-export class ProfileComponent {
-  constructor(private http: HttpClient){ }
+export class ProfileComponent implements OnInit {
 
-  private updateInfo(myForm: NgForm){
-    const f_name = myForm.value['f_name'];
-    const l_name = myForm.value['l_name'];
-    const email = myForm.value['email'];
-    const intorduce = myForm.value['introduce'];
-    const c_password = myForm.value['c_password'];
-    const n_password = myForm.value['n_password'];
-    const n2_password = myForm.value['n2_password'];
-    myForm.resetForm();
-    alert('Profile updated!');
+  currentUser: User = null;
+
+  constructor(private http: HttpClient, private authenticationService: AuthenticationService, private userService: UserService) {
+
+  }
+
+  ngOnInit() {
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
+  }
+
+
+  private updateInfo() {
+
+    this.userService.updateUser(this.currentUser).subscribe(x => {
+
+
+      localStorage.setItem('currentUser', JSON.stringify(this.currentUser));
+
+
+    });
   }
 }

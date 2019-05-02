@@ -37,4 +37,10 @@ export class UserService {
 
   }
 
+  updateUser(user : User)
+  {
+    return this.http.post(`${Config.apiUrl}/users/update`, user);
+  }
+
+
 }
