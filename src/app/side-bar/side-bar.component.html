@@ -18,7 +18,7 @@
         <div class="dashboard-nav-inner">
 
           <ul data-submenu-title="Start">
-            <li class="active"><a href="dashboard.html"><i class="icon-material-outline-dashboard"></i> Dashboard</a></li>
+            <li class="active"><a><i class="icon-material-outline-dashboard"></i> Dashboard</a></li>
             <li><a href="dashboard-reviews.html"><i class="icon-material-outline-rate-review"></i> Reviews</a></li>
           </ul>
 
@@ -26,15 +26,14 @@
             <li><a href="#"><i class="icon-material-outline-assignment"></i> Tasks</a>
               <ul>
                 <li><a (click)="navigListTasks()">List of Available Tasks</a></li>
-                <li><a href="dashboard-manage-tasks.html">Manage Tasks </a></li>
-                <li><a href="dashboard-manage-bidders.html">Manage Bidders</a></li>
+                <li><a (click)="navigTasks()">Manage Tasks </a></li>
                 <li><a (click)="navigAddTasks()">Post a Task</a></li>
               </ul>
             </li>
           </ul>
 
           <ul data-submenu-title="Account">
-            <li><a href="index-logged-out.html"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
+            <li><a (click)="logout()"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
           </ul>
 
         </div>
