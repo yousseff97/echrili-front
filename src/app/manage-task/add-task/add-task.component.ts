@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Task} from '../../_models/task';
+import Task from '../../_models/task';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {log} from 'util';
 import {TaskService} from '../../_services/task.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-add-task',
@@ -15,7 +16,7 @@ export class AddTaskComponent implements OnInit {
 
 
   constructor(private formBuilder: FormBuilder,
-              private taskService: TaskService
+              private taskService: TaskService, private router: Router
   ) {
   }
 
@@ -31,6 +32,8 @@ export class AddTaskComponent implements OnInit {
     } else {
       this.taskService.addTask(this.task).subscribe(next => {
         console.log('success');
+        this.router.navigate(['/task/my' ]);
+
       });
     }
 

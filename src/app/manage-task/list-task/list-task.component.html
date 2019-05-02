@@ -21,7 +21,7 @@
         <div class="tasks-list-container margin-top-35">
 
           <!-- Task -->
-          <div class="task-listing" *ngFor="let task of taskList;index as i">
+          <div class="task-listing" *ngFor="let task of taskList;index as i" id="task-{{i}}">
 
             <!-- Job Listing Details -->
             <div class="task-listing-details">
@@ -39,7 +39,7 @@
             </div>
 
             <div class="task-listing-bid">
-              <div class="task-listing-bid-inner">
+              <div class="task-listing-bid-inner"  >
                 <div class="task-offers">
                   <span class="bidding-detail margin-top-30">Set your <strong>Price </strong></span>
 
