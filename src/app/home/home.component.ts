@@ -7,8 +7,10 @@ import {UserService} from '../_services/user.service';
 import {Router} from '@angular/router';
 
 @Component({
-  templateUrl: 'home.component.html' })
-export class HomeComponent {
+  templateUrl: 'home.component.html',
+  selector: 'app-home'
+})
+  export class HomeComponent {
     users: User[] = [];
 
     constructor(private userService: UserService,  private router: Router,

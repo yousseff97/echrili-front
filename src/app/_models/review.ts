@@ -4,5 +4,6 @@ export default class Review {
 
   id: number;
   rate: number;
-  numberofvoters: 3;
+  numberofvoters: number;
+  addToTrustedList: boolean;
 }

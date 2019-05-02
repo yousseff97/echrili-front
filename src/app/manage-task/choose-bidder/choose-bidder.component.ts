@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import Bid from '../../_models/bid';
 import {TaskService} from '../../_services/task.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {BidService} from '../../_services/bid.service';
 
 @Component({
@@ -14,7 +14,7 @@ export class ChooseBidderComponent implements OnInit {
   bids: Bid[] = [];
 
 
-  constructor(private  bidService: BidService, private route: ActivatedRoute) {
+  constructor(private  bidService: BidService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit() {
@@ -32,9 +32,17 @@ export class ChooseBidderComponent implements OnInit {
   }
 
 
-  onSubmit(event,i) {
+  onSubmit(event, i) {
     event.preventDefault();
-    this.bidService.acceptBid(this.bids[i].id).subscribe(next => console.log('success'));
+
+    this.bidService.acceptBid(this.bids[i].id).subscribe(next => {
+      console.log('success');
+      this.router.navigate(['/task/my']);
+
+    });
+
+
+
   }
 
 

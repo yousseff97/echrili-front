@@ -1,4 +1,5 @@
 import Bid from './bid';
+import Review from './review';
 
 export default class Task {
 
@@ -10,4 +11,5 @@ export default class Task {
   description: string;
   createDateTime: Date;
   bids : Bid[];
+  review : Review;
 }

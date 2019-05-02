@@ -7,5 +7,6 @@ export default class Bid {
   price: number;
   deliveryTime: number;
   user: User;
+  status: boolean;
 
 }
