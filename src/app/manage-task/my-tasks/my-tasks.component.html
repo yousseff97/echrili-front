@@ -15,26 +15,25 @@
     <!-- Dashboard Content
       ================================================== -->
     <div class="dashboard-content-container" data-simplebar>
-      <div class="dashboard-content-inner" >
-
-        <div class="clearfix"></div>
+      <div class="dashboard-content-inner">
 
         <!-- Dashboard Headline -->
         <!-- Row -->
         <div class="container">
 
           <div class="dashboard-headline">
-            <h3>My Tasks</h3>
+            <h3>Manage Tasks</h3>
 
             <!-- Breadcrumbs -->
             <nav id="breadcrumbs" class="dark">
               <ul>
                 <li><a href="#">Home</a></li>
-                <li>My Tasks</li>
+                <li>Manage Tasks</li>
               </ul>
             </nav>
           </div>
         <div class="row">
+
           <!-- Dashboard Box -->
           <div class="col-xl-9">
             <div class="dashboard-box margin-top-0">
@@ -48,19 +47,22 @@
                 <ul class="dashboard-box-list" *ngFor="let task of taskList;index as i">
                   <li>
                     <!-- Job Listing -->
-                    <div class="job-listing width-adjustment"  >
+                    <div class="job-listing width-adjustment">
 
                       <!-- Job Listing Details -->
                       <div class="job-listing-details">
 
                         <!-- Details -->
                         <div class="job-listing-description">
-                          <h3 class="job-listing-title"><a href="#">{{task.description}}</a> <span class="dashboard-status-button yellow"></span></h3>
+                          <h3 class="job-listing-title"><a href="#">{{task.description}}</a> <span
+                            class="dashboard-status-button yellow"></span></h3>
 
                           <!-- Job Listing Footer -->
                           <div class="job-listing-footer">
                             <ul>
-                              <li><i class="icon-material-outline-access-time"></i>{{task.createDateTime | date:'h:mm a z'}}</li>
+                              <li><i
+                                class="icon-material-outline-access-time"></i>{{task.createDateTime | date:'h:mm a z'}}
+                              </li>
                             </ul>
                           </div>
                         </div>
@@ -74,10 +76,21 @@
                     </ul>
 
                     <!-- Buttons -->
-                    <div  class="buttons-to-right always-visible">
-                      <a *ngIf="!isActiveTask(task)" style="background-color: #2A41E8" href="" (click)="onClick($event,i)" class="button ripple-effect"><i class="icon-material-outline-supervisor-account"></i> Manage Bidders </a>
-                      <a *ngIf="isActiveTask(task)" style="background-color: green" href="#small-dialog-2" (click)="onClick($event,i)" class="popup-with-zoom-anim button ripple-effect"><i class="icon-material-outline-supervisor-account"></i> Done </a>
-                      <a href="#" class="button gray ripple-effect ico" title="Remove" data-tippy-placement="top"><i class="icon-feather-trash-2"></i></a>
+                    <div class="buttons-to-right always-visible">
+                      <!--<a [className]="isActiveTask(task) ? 'green button ripple-effect' : 'blue button ripple-effect' "  href=""-->
+                         <!--(click)="onClick($event,i)" ><i-->
+                        <!--class="icon-material-outline-supervisor-account"></i>{{isActiveTask(task) ? 'Done' : 'Manage Bidders'}}-->
+                      <!--</a>-->
+                      <a *ngIf="!isActiveTask(task)" class="blue button ripple-effect"   href=""
+                         (click)="onClick($event,i)" ><i
+                        class="icon-material-outline-supervisor-account"></i>Manage Bidders
+                      </a>
+                      <a *ngIf="isActiveTask(task)" class="green button ripple-effect popup-with-zoom-anim button ripple-effect "   href="{{'#small-dialog-'+(i+1)}}"
+                         (click)="onClick($event,i)" ><i
+                        class="icon-material-outline-supervisor-account"></i>Done
+                      </a>
+                      <a href="#" class="button gray ripple-effect ico" title="Remove" data-tippy-placement="top"><i
+                        class="icon-feather-trash-2"></i></a>
                     </div>
                   </li>
 
@@ -128,15 +141,17 @@
     <!-- Dashboard Content / End -->
 
   </div>
-
-</div>
   <!-- Dashboard Container / End -->
 
+</div>
 <!-- Wrapper / End -->
 
 
-<div id="small-dialog-2" class="zoom-anim-dialog mfp-hide dialog-with-tabs">
 
+<!-- Leave a Review for Freelancer Popup
+================================================== -->
+<ng-container *ngFor="let task of taskList;index as i"  >
+<div *ngIf="isActiveTask(task)"  id="{{'small-dialog-'+(i+1)}}" class="zoom-anim-dialog mfp-hide dialog-with-tabs popup" >
   <!--Tabs -->
   <div class="sign-in-form">
 
@@ -151,66 +166,54 @@
         <!-- Welcome Text -->
         <div class="welcome-text">
           <h3>Leave a Review</h3>
-          <span>Rate <a href="#">Peter Valentín</a> for the project <a href="#">Simple Chrome Extension</a> </span>
+          <span>Rate <a href="#">the delivery guy</a> for the delivery <a href="#">Simple Chrome Extension</a> </span>
         </div>
 
         <!-- Form -->
         <form method="post" id="leave-review-form">
 
           <div class="feedback-yes-no">
-            <strong>Was this delivered on budget?</strong>
+            <strong>Add to trusted users?</strong>
             <div class="radio">
-              <input id="radio-1" name="radio" type="radio" required>
-              <label for="radio-1"><span class="radio-label"></span> Yes</label>
+              <input id="{{'radio-1-'+(i+1)}}" name="radio" type="radio" checked  required>
+              <label for="{{'radio-1-'+(i+1)}}"><span class="radio-label"></span> Yes</label>
             </div>
 
             <div class="radio">
-              <input id="radio-2" name="radio" type="radio" required>
-              <label for="radio-2"><span class="radio-label"></span> No</label>
-            </div>
-          </div>
-
-          <div class="feedback-yes-no">
-            <strong>Was this delivered on time?</strong>
-            <div class="radio">
-              <input id="radio-3" name="radio2" type="radio" required>
-              <label for="radio-3"><span class="radio-label"></span> Yes</label>
-            </div>
-
-            <div class="radio">
-              <input id="radio-4" name="radio2" type="radio" required>
-              <label for="radio-4"><span class="radio-label"></span> No</label>
+              <input  id="{{'radio-2-'+(i+1)}}"  name="radio" type="radio" required>
+              <label for="{{'radio-2-'+(i+1)}}"><span class="radio-label"></span> No</label>
             </div>
           </div>
 
           <div class="feedback-yes-no">
             <strong>Your Rating</strong>
             <div class="leave-rating">
-              <input type="radio" name="rating" id="rating-radio-1" value="1" required>
+              <input type="radio" name="rating"  id="rating-radio-1" value="1" required>
               <label for="rating-radio-1" class="icon-material-outline-star"></label>
-              <input type="radio" name="rating" id="rating-radio-2" value="2" required>
+              <input type="radio" name="rating"  id="rating-radio-2" value="2" required>
               <label for="rating-radio-2" class="icon-material-outline-star"></label>
-              <input type="radio" name="rating" id="rating-radio-3" value="3" required>
+              <input type="radio" name="rating"  id="rating-radio-3" value="3" required>
               <label for="rating-radio-3" class="icon-material-outline-star"></label>
-              <input type="radio" name="rating" id="rating-radio-4" value="4" required>
+              <input type="radio" name="rating"  id="rating-radio-4" value="4" required>
               <label for="rating-radio-4" class="icon-material-outline-star"></label>
-              <input type="radio" name="rating" id="rating-radio-5" value="5" required>
+              <input type="radio" name="rating"  id="rating-radio-5" value="5" required>
               <label for="rating-radio-5" class="icon-material-outline-star"></label>
             </div><div class="clearfix"></div>
           </div>
 
-          <textarea class="with-border" placeholder="Comment" name="message2" id="message2" cols="7" required></textarea>
 
         </form>
 
         <!-- Button -->
-        <button class="button full-width button-sliding-icon ripple-effect" type="submit" form="leave-review-form">Leave a Review <i class="icon-material-outline-arrow-right-alt"></i></button>
+        <button (click)="reviewSubmit(i)" class="button full-width button-sliding-icon ripple-effect" type="submit" form="leave-review-form">Leave a Review <i class="icon-material-outline-arrow-right-alt"></i></button>
 
       </div>
 
     </div>
   </div>
 </div>
+</ng-container>
+<!-- Leave a Review Popup / End -->
 
 
 
