@@ -38,8 +38,10 @@ export class LoginComponent implements OnInit {
     });
 
     this.registerForm = this.formBuilder.group({
-      username1: ['', Validators.required],
-      password1: ['', [Validators.required, Validators.minLength(6)]],
+      username: ['', Validators.required],
+      firstname: ['', Validators.required],
+      lastname: ['', Validators.required],
+      password: ['', [Validators.required, Validators.minLength(4)]],
       email: ['', [Validators.required, Validators.email]]
     });
 
@@ -73,6 +75,7 @@ export class LoginComponent implements OnInit {
       .subscribe(
         data => {
           $('#sign-in-dialog').magnificPopup('close');
+
           this.router.navigate(['/task/list']);
         },
         error => {
@@ -83,21 +86,28 @@ export class LoginComponent implements OnInit {
 
   onSubmit1() {
     this.submitted1 = true;
+    console.log(this.registerForm.value);
 
     // stop here if form is invalid
     if (this.registerForm.invalid) {
       return;
     }
+    console.log(this.registerForm.value);
 
     this.userService.register(this.registerForm.value)
       .pipe(first())
       .subscribe(
         data => {
           console.log('okk');
+          $('#sign-in-dialog').magnificPopup('close');
+          window.location.reload();
+
           this.router.navigate(['/login']);
         },
         error => {
-          console.log('error');
+          window.location.reload();
+
+          console.log(error);
         });
   }
 

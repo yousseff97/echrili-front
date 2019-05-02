@@ -100,4 +100,9 @@ export class MyTasksComponent implements OnInit {
     this.userService.addReview(review).subscribe(next => alert('review added'));
 
   }
+
+  deleteTask($event, i: number) {
+    $event.preventDefault();
+    this.taskService.delete(this.taskList[i].id).subscribe(next => $('#task-' + i).fadeOut());
+  }
 }

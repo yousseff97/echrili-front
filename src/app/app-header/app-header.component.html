@@ -18,11 +18,6 @@
           <ul id="responsive">
 
             <li><a href="#" class="current">Home</a>
-              <ul class="dropdown-nav">
-                <li><a href="index.html">Home 1</a></li>
-                <li><a href="index-2.html">Home 2</a></li>
-                <li><a href="index-3.html">Home 3</a></li>
-              </ul>
             </li>
 
         </ul>
@@ -122,22 +117,14 @@
                 <div class="user-details">
                   <div class="user-avatar status-online"><img src="../assets/images/user-avatar-small-01.jpg" alt=""></div>
                   <div class="user-name">
-                    Tom Smith <span>Freelancer</span>
+                    {{currentUser.firstName}} {{currentUser.lastName}} <span></span>
                   </div>
                 </div>
 
-                <!-- User Status Switcher -->
-                <div class="status-switch" id="snackbar-user-status">
-                  <label class="user-online current-status">Online</label>
-                  <label class="user-invisible">Invisible</label>
-                  <!-- Status Indicator -->
-                  <span class="status-indicator" aria-hidden="true"></span>
-                </div>
               </div>
 
               <ul class="user-menu-small-nav">
-                <li><a href="dashboard.html"><i class="icon-material-outline-dashboard"></i> Dashboard</a></li>
-                <li><a href="dashboard-settings.html"><i class="icon-material-outline-settings"></i> Settings</a></li>
+                <li><a [routerLink]="['/profile']"><i class="icon-material-outline-dashboard"></i> Profile</a></li>
                 <li><a (click)="logout()" href="index-logged-out.html"><i class="icon-material-outline-power-settings-new"></i> Logout</a></li>
               </ul>
 

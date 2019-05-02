@@ -2,94 +2,115 @@
 <div id="wrapper">
 
 
-
-
   <app-home></app-home>
 
 
-<!-- Sign In Popup
-================================================== -->
-<div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide dialog-with-tabs">
+  <!-- Sign In Popup
+  ================================================== -->
+  <div id="sign-in-dialog" class="zoom-anim-dialog mfp-hide dialog-with-tabs">
 
-  <!--Tabs -->
-  <div class="sign-in-form">
+    <!--Tabs -->
+    <div class="sign-in-form">
 
-    <ul class="popup-tabs-nav">
-      <li><a href="#login">Log In</a></li>
-      <li><a href="#register">Register</a></li>
-    </ul>
+      <ul class="popup-tabs-nav">
+        <li><a href="#login">Log In</a></li>
+        <li><a href="#register">Register</a></li>
+      </ul>
 
-    <div class="popup-tabs-container">
+      <div class="popup-tabs-container">
 
-      <!-- Login -->
-      <div class="popup-tab-content" id="login">
+        <!-- Login -->
+        <div class="popup-tab-content" id="login">
 
-        <!-- Welcome Text -->
-        <div class="welcome-text">
-          <h3>We're glad to see you again!</h3>
-          <span>Don't have an account? <a href="#" class="register-tab">Sign Up!</a></span>
+          <!-- Welcome Text -->
+          <div class="welcome-text">
+            <h3>We're glad to see you again!</h3>
+            <span>Don't have an account? <a href="#" class="register-tab">Sign Up!</a></span>
+          </div>
+
+          <!-- Form -->
+          <form method="post" id="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="input-with-icon-left">
+              <i class="icon-material-baseline-mail-outline"></i>
+              <input type="text" class="input-text with-border" name="emailaddress" id="emailaddress"
+                     placeholder="Email Address" formControlName="username" required/>
+            </div>
+
+            <div class="input-with-icon-left">
+              <i class="icon-material-outline-lock"></i>
+              <input type="password" class="input-text with-border" name="password" id="password" placeholder="Password"
+                     formControlName="password" required/>
+            </div>
+            <a href="#" class="forgot-password">Forgot Password?</a>
+          </form>
+
+          <!-- Button -->
+          <button class="button full-width button-sliding-icon ripple-effect" type="submit" form="login-form">Log In <i
+            class="icon-material-outline-arrow-right-alt"></i></button>
+
+          <!-- Social Login -->
+
         </div>
 
-        <!-- Form -->
-        <form method="post" id="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-          <div class="input-with-icon-left">
-            <i class="icon-material-baseline-mail-outline"></i>
-            <input type="text" class="input-text with-border" name="emailaddress" id="emailaddress" placeholder="Email Address" formControlName="username" required/>
+        <!-- Register -->
+        <div class="popup-tab-content" id="register">
+
+          <!-- Welcome Text -->
+          <div class="welcome-text">
+            <h3>Let's create your account!</h3>
           </div>
 
-          <div class="input-with-icon-left">
-            <i class="icon-material-outline-lock"></i>
-            <input type="password" class="input-text with-border" name="password" id="password" placeholder="Password" formControlName="password" required/>
+          <!-- Form -->
+          <form [formGroup]="registerForm" (ngSubmit)="onSubmit1()" id="register-account-form">
+            <div class="input-with-icon-left">
+              <input type="text" formControlName="username" class="input-text with-border" name="username-register"
+                     id="username-register" placeholder="Username"
+                     [ngClass]="{ 'is-invalid': submitted1 && f1.username.errors }" required/>
+            </div>
+            <div class="input-with-icon-left">
+              <input type="text" formControlName="firstname" class="input-text with-border" name="username-register"
+                     id="firstname-register" placeholder="FirstName"
+                     [ngClass]="{ 'is-invalid': submitted1 && f1.firstname.errors }" required/>
+            </div>
+            <div class="input-with-icon-left">
+              <input type="text" formControlName="lastname" class="input-text with-border" name="username-register"
+                     id="lastname-register" placeholder="LastName"
+                     [ngClass]="{ 'is-invalid': submitted1 && f1.lastname.errors }" required/>
+            </div>
+
+
+            <div class="input-with-icon-left">
+              <i class="icon-material-baseline-mail-outline"></i>
+              <input type="text" formControlName="email" class="input-text with-border" name="emailaddress-register"
+                     id="emailaddress-register" placeholder="Email Address"
+                     [ngClass]="{ 'is-invalid': submitted1 && f1.email.errors }" required/>
+            </div>
+
+            <div class="input-with-icon-left" title="Should be at least 4 characters long"
+                 data-tippy-placement="bottom">
+              <i class="icon-material-outline-lock"></i>
+              <input type="password" formControlName="password" class="input-text with-border" name="password-register"
+                     id="password-register" placeholder="Password"
+                     [ngClass]="{ 'is-invalid': submitted1 && f1.password.errors }" required/>
+            </div>
+
+            <div class="input-with-icon-left">
+              <i class="icon-material-outline-lock"></i>
+              <input type="password" class="input-text with-border" name="password-repeat-register"
+                     id="password-repeat-register" placeholder="Repeat Password" required/>
+            </div>
+          </form>
+
+          <!-- Button -->
+          <div class="form-group">
+            <button type="submit" (click)="onSubmit1()" class="margin-top-10 button full-width button-sliding-icon ripple-effect">Register <i
+              class="icon-material-outline-arrow-right-alt"></i></button>
+            <a routerLink="/login" class="btn btn-link">Cancel</a>
           </div>
-          <a href="#" class="forgot-password">Forgot Password?</a>
-        </form>
-
-        <!-- Button -->
-        <button class="button full-width button-sliding-icon ripple-effect" type="submit" form="login-form">Log In <i class="icon-material-outline-arrow-right-alt"></i></button>
-
-        <!-- Social Login -->
+        </div>
 
       </div>
-
-      <!-- Register -->
-      <div  class="popup-tab-content" id="register">
-
-        <!-- Welcome Text -->
-        <div class="welcome-text">
-          <h3>Let's create your account!</h3>
-        </div>
-
-        <!-- Form -->
-        <form [formGroup]="registerForm" (ngSubmit)="onSubmit1()" id="register-account-form">
-          <div class="input-with-icon-left">
-            <input type="text" formControlName="username1" class="input-text with-border" name="username-register" id="username-register" placeholder="Username" [ngClass]="{ 'is-invalid': submitted1 && f1.username.errors }" required/>
-          </div>
-
-          <div class="input-with-icon-left">
-            <i class="icon-material-baseline-mail-outline"></i>
-            <input type="text" formControlName="email" class="input-text with-border" name="emailaddress-register" id="emailaddress-register" placeholder="Email Address" [ngClass]="{ 'is-invalid': submitted1 && f1.email.errors }" required />
-          </div>
-
-          <div class="input-with-icon-left" title="Should be at least 8 characters long" data-tippy-placement="bottom">
-            <i class="icon-material-outline-lock"></i>
-            <input type="password" formControlName="password1" class="input-text with-border" name="password-register" id="password-register" placeholder="Password" [ngClass]="{ 'is-invalid': submitted1 && f1.password1.errors }" required/>
-          </div>
-
-          <div class="input-with-icon-left">
-            <i class="icon-material-outline-lock"></i>
-            <input type="password" class="input-text with-border" name="password-repeat-register" id="password-repeat-register" placeholder="Repeat Password" required/>
-          </div>
-        </form>
-
-        <!-- Button -->
-        <div class="form-group">
-          <button class="margin-top-10 button full-width button-sliding-icon ripple-effect">Register <i class="icon-material-outline-arrow-right-alt"></i></button>
-          <a routerLink="/login" class="btn btn-link">Cancel</a>
-        </div>
-      </div>
-
     </div>
   </div>
-</div>
-<!-- Sign In Popup / End -->
+  <!-- Sign In Popup / End -->
 </div>

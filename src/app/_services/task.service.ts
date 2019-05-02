@@ -18,9 +18,11 @@ export class TaskService {
   }
 
 
-
-
   getAllMyTasks() {
     return this.http.get<Task[]>(`${Config.apiUrl}/tasks/my`);
+  }
+
+  delete(id: number) {
+    return this.http.delete(`${Config.apiUrl}/tasks/delete/` + id);
   }
 }
