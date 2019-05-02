@@ -1,5 +1,4 @@
-export default class Task {
-
+export class Task {
   location: string;
   price: number;
   deliveryTime: number;
