@@ -14,10 +14,6 @@ export function loadManageTaskModule() {
 
 const appRoutes: Routes = [
   {
-    path: '',
-    component: HomeComponent,
-  //  canActivate: [AuthGuard]
-  }, {
     path: 'login',
     component: LoginComponent
   }, {
@@ -32,11 +28,12 @@ const appRoutes: Routes = [
   },
   {
     path: 'task',
+    canActivate: [AuthGuard],
     loadChildren: loadManageTaskModule,
   },
 
   // otherwise redirect to home
-  {path: '**', redirectTo: ''}
+  {path: '**', redirectTo: 'task/list'}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);
