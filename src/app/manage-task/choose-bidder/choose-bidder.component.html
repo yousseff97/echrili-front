@@ -89,7 +89,7 @@
 
                           <!-- Buttons -->
                           <div (click)="onSubmit($event,i)" class="buttons-to-right always-visible margin-top-25 margin-bottom-0" >
-                            <a style="background-color: #2A41E8" href="#small-dialog-1" class="popup-with-zoom-anim button ripple-effect"><i
+                            <a style="background-color: #2A41E8" href="" class="popup-with-zoom-anim button ripple-effect"><i
                               class="icon-material-outline-check"></i> Accept Offer</a>
 
                             <a href="#" class="button gray ripple-effect ico" title="Remove Bid"
@@ -110,34 +110,6 @@
         </div>
         <!-- Footer -->
         <div class="dashboard-footer-spacer"></div>
-        <div class="small-footer margin-top-15">
-          <div class="small-footer-copyrights">
-            © 2018 <strong>Hireo</strong>. All Rights Reserved.
-          </div>
-          <ul class="footer-social-links">
-            <li>
-              <a href="#" title="Facebook" data-tippy-placement="top">
-                <i class="icon-brand-facebook-f"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="Twitter" data-tippy-placement="top">
-                <i class="icon-brand-twitter"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="Google Plus" data-tippy-placement="top">
-                <i class="icon-brand-google-plus-g"></i>
-              </a>
-            </li>
-            <li>
-              <a href="#" title="LinkedIn" data-tippy-placement="top">
-                <i class="icon-brand-linkedin-in"></i>
-              </a>
-            </li>
-          </ul>
-          <div class="clearfix"></div>
-        </div>
         <!-- Footer / End -->
 
       </div>
@@ -152,87 +124,8 @@
 <!-- Wrapper / End -->
 
 
-<!-- Bid Acceptance Popup
-================================================== -->
-<div id="small-dialog-1" class="zoom-anim-dialog mfp-hide dialog-with-tabs">
-
-  <!--Tabs -->
-  <div class="sign-in-form">
-
-    <ul class="popup-tabs-nav">
-      <li><a href="#tab1">Accept Offer</a></li>
-    </ul>
-
-    <div class="popup-tabs-container">
-
-      <!-- Tab -->
-      <div class="popup-tab-content" id="tab">
-
-        <!-- Welcome Text -->
-        <div class="welcome-text">
-          <h3>Accept Offer From David</h3>
-          <div class="bid-acceptance margin-top-15">
-            $3200
-          </div>
-
-        </div>
-
-        <form id="terms">
-          <div class="radio">
-            <input id="radio-1" name="radio" type="radio" required>
-            <label for="radio-1"><span class="radio-label"></span> I have read and agree to the Terms and
-              Conditions</label>
-          </div>
-        </form>
-
-        <!-- Button -->
-        <button class="margin-top-15 button full-width button-sliding-icon ripple-effect" type="submit" form="terms">
-          Accept <i class="icon-material-outline-arrow-right-alt"></i></button>
-
-      </div>
-
-    </div>
-  </div>
-</div>
-<!-- Bid Acceptance Popup / End -->
 
 
-<!-- Send Direct Message Popup
-================================================== -->
-<div id="small-dialog-2" class="zoom-anim-dialog mfp-hide dialog-with-tabs">
-
-  <!--Tabs -->
-  <div class="sign-in-form">
-
-    <ul class="popup-tabs-nav">
-      <li><a href="#tab2">Send Message</a></li>
-    </ul>
-
-    <div class="popup-tabs-container">
-
-      <!-- Tab -->
-      <div class="popup-tab-content" id="tab2">
-
-        <!-- Welcome Text -->
-        <div class="welcome-text">
-          <h3>Direct Message To David</h3>
-        </div>
-
-        <!-- Form -->
-        <form method="post" id="send-pm">
-          <textarea name="textarea" cols="10" placeholder="Message" class="with-border" required></textarea>
-        </form>
-
-        <!-- Button -->
-        <button class="button full-width button-sliding-icon ripple-effect" type="submit" form="send-pm">Send <i
-          class="icon-material-outline-arrow-right-alt"></i></button>
-
-      </div>
-
-    </div>
-  </div>
-</div>
-<!-- Send Direct Message Popup / End -->
 
 
 <!-- Scripts

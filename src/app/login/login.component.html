@@ -63,16 +63,20 @@
           <!-- Form -->
           <form [formGroup]="registerForm" (ngSubmit)="onSubmit1()" id="register-account-form">
             <div class="input-with-icon-left">
+              <i class="icon-material-outline-face"></i>
               <input type="text" formControlName="username" class="input-text with-border" name="username-register"
                      id="username-register" placeholder="Username"
                      [ngClass]="{ 'is-invalid': submitted1 && f1.username.errors }" required/>
             </div>
             <div class="input-with-icon-left">
+              <i class="icon-material-outline-face"></i>
               <input type="text" formControlName="firstname" class="input-text with-border" name="username-register"
                      id="firstname-register" placeholder="FirstName"
                      [ngClass]="{ 'is-invalid': submitted1 && f1.firstname.errors }" required/>
             </div>
             <div class="input-with-icon-left">
+              <i class="icon-material-outline-face"></i>
+
               <input type="text" formControlName="lastname" class="input-text with-border" name="username-register"
                      id="lastname-register" placeholder="LastName"
                      [ngClass]="{ 'is-invalid': submitted1 && f1.lastname.errors }" required/>

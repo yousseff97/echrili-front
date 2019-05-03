@@ -91,13 +91,17 @@ export class MyTasksComponent implements OnInit {
 
     if (!addToTrustedList) {
       var idBidder = this.getIdBidder(this.taskList[i]);
-      this.userService.addTrustedUser(idBidder).subscribe(next => alert('added trusted user'));
+      this.userService.addTrustedUser(idBidder).subscribe(next => {
+      });
     }
     console.log(idBidder);
     var review: Review = new Review();
     review.id = idBidder;
     review.rate = rating;
-    this.userService.addReview(review).subscribe(next => alert('review added'));
+    this.userService.addReview(review).subscribe(next => {
+
+    });
+    this.taskService.delete(this.taskList[i].id).subscribe(next => window.location.reload());
 
   }
 
